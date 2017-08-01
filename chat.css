@@ -1,0 +1,4 @@
+.top { background:#E0E0E0; padding:10px; font-weight:bold; }
+.top form { margin:0px; }
+.top input, .top select { margin-right:10px; }
+#chat { font-family:monospace,monospace; }
