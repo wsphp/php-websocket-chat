@@ -14,8 +14,8 @@
 <h2>Information</h2>
 <p>Network communications are done using Websockets.
 WebSocket is a computer communications protocol, providing full-duplex communication channels over a single TCP connection.
-That is why we can read (via <i>ws.onmessage</i> callback) and send messages using only one websocket connection.
+That is why we can read (via <i>ws.onmessage</i> callback) and send messages (via <i>ws.send</i>) using only one websocket connection.
 <a href="http://wsphp.net">WSPHP</a> server takes care about websocket protocol actions: handshake, encoding/decoding frames, etc.
-PHP role is small - it just re-sends message received to all connected users.
-Messages are wrapped to JSON format.
+PHP role is small - it just re-sends received message to all connected users.
+Messages are wrapped to JSON format for convenience.
 </p>
