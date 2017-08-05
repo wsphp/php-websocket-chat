@@ -71,10 +71,8 @@ function ChatMessage(nick, color, message)
 }
 
 function OnSay(form)
-{	if(window.console) console.log("name="+form.name.value);
-	if(window.console) console.log("message="+form.message.value);
-	if(window.console) console.log("color="+form.name.color);
-
-if(ws) ws.send("name="+form.name.value+"&message="+form.message.value+"&color="+form.color.value);
+{	try{
+		if(ws) ws.send("name="+form.name.value+"&message="+form.message.value+"&color="+form.color.value);
+	}catch(e) { if(window.console) console.log("OnSay() "+e); }
 	return false;
 }
