@@ -12,10 +12,8 @@ if(isset($_GET['client_notification']))
 			echo '<WSSend to="all">{"notification":0,"sid":"'.$_SERVER['WSPHP_SESSION'].'"}</WSSend>';
 			break;
 	}
-	exit(0);
 }
-
-if(isset($_GET['message']))
+else if(isset($_GET['message']))
 {	$jsonString = '{"message":"'.htmlspecialchars($_GET['message']).'","color":"'.htmlspecialchars($_GET['color']).'","name":"'.htmlspecialchars($_GET['name']).'"}';
 	echo '<WSSend to="all">'.$jsonString.'</WSSend>';
 	// Message will not be delivered to originator client.

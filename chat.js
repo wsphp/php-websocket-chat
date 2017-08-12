@@ -2,14 +2,23 @@ var ws = false;
 var connected = false;
 
 function Reconnect()
-{	if(connected)
+{	var url=false;
+
+	url = document.getElementById("server").innerHTML;
+	if(!url || !url.length)
+	{	url = location.host;
+		if(!url || !url.length) url="127.0.0.1:30403";
+		document.getElementById("server").innerHTML = url;
+	}
+
+	if(connected)
 	{	ChatMessage(false, "#999", "disconnected from server");
 		connected = false;
 	}
 	if(ws) ws.close();
 	else ChatMessage(false, "#AAA", "connecting to server...");
 	connected = false;
-	ws = new WebSocket("ws://"+document.getElementById("server").innerHTML);
+	ws = new WebSocket("ws://"+url+"/wsphp");
 	ws.onopen    = function(evt) { onOpen(evt);    };
 	ws.onclose   = function(evt) { onClose(evt);   };
 	ws.onmessage = function(evt) { onMessage(evt); };
